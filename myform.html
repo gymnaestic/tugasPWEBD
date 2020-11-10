@@ -1,0 +1,77 @@
+<html>
+ <head>
+ 
+<title>DWP CONCERT TICKETS ORDER!</title>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <style>
+        .label {
+            float: left;
+            width: 120px;
+        }
+        
+        .infobox {
+            width: 200px;
+        }
+        
+        .error {
+            color: red;
+            padding-left: 10px;
+        }
+        
+        .submit {
+            margin-left: 125px;
+            margin-top: 10px;
+        }
+    
+    </style>
+ </head>
+
+ <body style="background-color: FFDAB9;"> 
+<div class="container">
+        <h2 class="judul">How many concert tickets do you wanna buy?</h2>
+    </div>
+         <form id="signup" method="post" action="">
+             <div>
+    <br>
+    <span class="label">Input the number :</span>
+                 <input type="text" class="infobox form-control" name="age"/>
+                 <span class="error">I'm so sorry, only input the numericals yes :(</span>
+             </div>
+             <script>
+                 $(document).ready(function() { 
+                    $('.error').hide();
+                    $('.submit').click(function(event){
+                        var data=$('.infobox').val();
+                        var len=data.length; 
+                        var c=0;
+                        var age=0;
+                        var flag=0;
+                        for(var i=0;i<len;i++) { 
+                        c=data.charAt(i).charCodeAt(0);
+                            if(c <48 || c >57) { 
+                                $('.error').show();
+                                flag=1; 
+                                event.preventDefault(); 
+                                break; 
+                            } else { 
+                                $('.error').hide();
+                            }
+                        }
+                if(flag==0) {
+                    tickets=parseInt(data); 
+                if(tickets<1 || tickets>5) {
+                    $('.error').show(); 
+                    $('.error').text('I am so sorry, please save the tickets for the other yes :('); 
+                    event.preventDefault();
+                }
+            }
+        });
+     });
+             </script>           
+        
+            <input class="submit btn btn-success" type="submit" value="Submit">
+         </form>
+     </div>
+</body>
+
+</html>
